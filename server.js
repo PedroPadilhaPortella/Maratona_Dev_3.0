@@ -2,10 +2,10 @@
 const express = require("express");
 const server = express();
 
-/* Configurando o servidor para apresentar arquivos extras */
+/* Configurando o servidor para apresentar arquivos estaticos */
 server.use(express.static('public')); 
 
-// Habilitando body do formulário
+// Habilitando body do formulário / Middleware
 server.use(express.urlencoded({ extended: true }));
 
 // Configurar conexão com banco de dados
@@ -28,19 +28,19 @@ nunjucks.configure("./", {
 });
 
 
-
 /* Configurando a apresentação da página */
 server.get("/", function(req, res){
     db.query("SELECT * FROM donors", function(err, result){
-        if (err) return res.send("Erro de bando de dados.");
+        if (err) return res.send("[AVISO] Erro de banco de dados!");
 
         const donors = result.rows;
         return res.render("index.html", { donors });
     })
-}); 
+});
 
+
+/*Pegar dados do formulário para apresentação*/
 server.post("/", function(req, res){
-    //Pegar dados do formulário
     const name = req.body.name;
     const email = req.body.email;
     const blood = req.body.blood;
@@ -58,7 +58,7 @@ server.post("/", function(req, res){
 
     db.query(query, values, function(err){
         // Fluxo de erro
-        if(err) return res.send("Erro no banco de dados");
+        if(err) return res.send("[AVISO] Erro no banco de dados!!");
 
         // Fluxo ideal
         return res.redirect("/");
@@ -66,7 +66,7 @@ server.post("/", function(req, res){
 })
 
 
-/* Iniciando o servidor */
+/* Iniciando o servidor porta localhost:3000 */
 server.listen(3000, function(){
-    console.log("Iniciei o server")
+    console.log("[SUCESS] Iniciei o server!")
 });
