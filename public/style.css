@@ -11,6 +11,7 @@ h1, h2 {
 
 html, body {
     margin: 0;
+    font-size: 30px;
 }
 
 body {
@@ -21,8 +22,7 @@ body {
 
     /* Fonte */
     font-family: 'Roboto', sans-serif;
-
-    background-color: #f9f9f9;
+    background-color: whitesmoke;
 }
 
 /* Títulos */

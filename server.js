@@ -2,18 +2,21 @@
 const express = require("express");
 const server = express();
 
+
 /* Configurando o servidor para apresentar arquivos estaticos */
 server.use(express.static('public')); 
 
+
 // Habilitando body do formulário / Middleware
 server.use(express.urlencoded({ extended: true }));
+
 
 // Configurar conexão com banco de dados
 const Pool = require('pg').Pool;
 
 const db = new Pool({
     user: 'postgres',
-    password: '0000',
+    password: 'admin',
     host: 'localhost',
     port: 5432,
     database: 'doe'
@@ -46,23 +49,25 @@ server.post("/", function(req, res){
     const blood = req.body.blood;
 
     // Se algum dado vier vazio
-    if (name == "" || email == "" || blood == "")
-    {
+    if (name == "" || email == "" || blood == ""){
         return res.send("Todos os campos são obrigatórios");
     }
 
     // Colocando valores dentro do banco de dados
-    const query = `INSERT INTO "donors" ("name", "email", "blood") VALUES ($1, $2, $3)`;
+    const query = `
+    INSERT INTO donors ("name", "email", "blood") 
+    VALUES ($1, $2, $3)`;
 
     const values = [name, email, blood];
-
+    console.log(values)
     db.query(query, values, function(err){
-        // Fluxo de erro
-        if(err) return res.send("[AVISO] Erro no banco de dados!!");
-
+        if(err){
+            return res.send("[AVISO] Erro no banco de dados!!")
+    }
         // Fluxo ideal
         return res.redirect("/");
     });
+
 })
 
 
