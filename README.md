@@ -1,6 +1,6 @@
 # Maratona_Dev_3.0
 
-antes, instale as dependências NODE.js
+## primeiramente instale as dependências NODE.js
 
 ### npm init
 ### npm install express
