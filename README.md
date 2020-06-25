@@ -10,4 +10,4 @@ npm install pg
 
 Você também precisa ter instalado o PostgresSQL e o PostBird para acessar o banco de dados
 
-![dashboard]()
+![dashboard](https://github.com/PedroPadilhaPortella/Maratona_Dev_3.0/blob/master/dashboard.PNG)
