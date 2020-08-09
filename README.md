@@ -1,12 +1,12 @@
 # Maratona_Dev_3.0
 
-## primeiramente instale as dependências NODE.js
+Primeiramente instale as dependências NODE.js
 
-### npm init
-### npm install express
-### npm install nodemon
-### npm install nunjucks
-### npm install pg
+npm init
+npm install express
+npm install nodemon
+npm install nunjucks
+npm install pg
 
 ### Você também precisa ter instalado o PostgresSQL e o PostBird para acessar o banco de dados
 
