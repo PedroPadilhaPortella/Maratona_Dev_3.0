@@ -1,5 +1,5 @@
 # Maratona_Dev_3.0
-## Projeto Doe contruido durante a Maraton_Dev_3.0 da RocketSeat :rocket:
+### Projeto Doe contruido durante a Maraton_Dev_3.0 da RocketSeat :rocket:
 Primeiramente instale as dependências node.js
 ```
 npm init
